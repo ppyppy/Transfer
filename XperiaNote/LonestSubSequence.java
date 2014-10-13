@@ -1,4 +1,4 @@
-//if it is continous, normall it mean not continuous
+//if it is continous, normall it means not continuous subquence
 //bad solution
 	String LCS(String s1, String s2, StringBuilder lcs){
 		if(s1.length()==0 || s2.length()==0)
