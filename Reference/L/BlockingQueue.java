@@ -4,6 +4,7 @@
 //the size bounds (0 or limit). If the queue size is not equal to either bound when enqueue() or dequeue() 
 //is called, there can be no threads waiting to either enqueue or dequeue items.
 
+//Also can be used as consumer and producer
 public class BlockingQueue {
 
 	private List queue = new LinkedList();
