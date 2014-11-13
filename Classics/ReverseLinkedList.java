@@ -1,10 +1,31 @@
-	void ReverseLinkedList(LinkedNode cur, LinkedNode pre){
-		if(cur==null)
-			return;
-		LinkedNode next = cur.next;
-		cur.next = pre;
-		ReverseLinkedList(next, cur);
-	}
+    ListNode reverseList(ListNode head){
+    	if(head==null)
+    		return null;
+    	return helper(head, null);
+    }
+    
+    ListNode helper(ListNode cur, ListNode pre){
+    	if(cur==null){
+    		return pre;
+    	}
+    	ListNode next = cur.next;
+    	cur.next = pre;
+    	return helper(next, cur);
+    }
+	
+    ListNode reverseList(ListNode head){
+    	if(head==null || head.next==null)
+    		return head;
+    	ListNode pre = null, p = head, next = head.next;
+    	while(p!=null){
+    		p.next = pre;
+    		pre = p;
+    		p = next;
+    		if(next!=null)
+    			next = next.next;
+    	}
+    	return pre;
+    }
 	
 	
 //L 店面
