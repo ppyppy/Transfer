@@ -15,23 +15,20 @@
 	        return (int) high;
 	    }
 	    
-	    //if want to return double
-	    public double sqrt(int x) {
-	        if(x<0)
-	            return -1;
-	        double low=0, high=x/2+1;
-	        while(low<=high){
-	            double mid = (low+high)/2;
-	            if( Math.abs(mid*mid-(long)(x))<0.01)
-	                return mid;
-	            else if(mid*mid<x){
-	                low = (mid+0.01);
-	            }else{
-	                high = (mid-0.01);
-	            }
-	        }
-	        return high;
-	    }
+       double epsilon = 0.000000000000001;
+       double sqrt2(double d) {
+    	    assert(d>0);
+    	    if(d<1) return sqrt2(d*100)/10.0;
+    	    double start=1.0, end = d;
+    	    double m = (start+end)/2.0;
+    	    while(Math.abs(d-m*m)>epsilon) {
+    	        if(m*m<d) start = m;
+    	        else end = m;
+    	        m = (start+end)/2.0;
+    	    }
+    	    return m;
+    	  }
+	    
 	    
 	    //Reference: http://www.drdobbs.com/184409869;jsessionid=AIDFL0EBECDYLQE1GHOSKH4ATMY32JVN
 
